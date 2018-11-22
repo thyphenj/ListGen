@@ -9,16 +9,23 @@ namespace Paint
 
         public Point Location { get; set; }
         public int[] Thickness { get; set; }
+        public int Y;
+        public int X;
+
+        public Clue Clue;
 
         public Cell(int y, int x)
         {
+            Y = y;
+            X = x;
+
             Location = new Point(OFFSET + CELLSIZE * x, OFFSET + CELLSIZE * y);
             Thickness = new int[] { 1, 1 };
         }
 
         public void AddClue(Clue clue)
         {
-            System.Console.WriteLine(clue.Text);
+            Clue = clue;
         }
 
         public void DrawCell(Graphics graphics)
@@ -29,6 +36,21 @@ namespace Paint
                 graphics.DrawLine(pen, Location.X + CELLSIZE, Location.Y, Location.X + CELLSIZE, Location.Y + CELLSIZE);
                 pen.Width = Thickness[1];
                 graphics.DrawLine(pen, Location.X + CELLSIZE, Location.Y + CELLSIZE, Location.X, Location.Y + CELLSIZE);
+
+                if (Clue != null)
+                    using (var drawFont = new Font("Arial", 8))
+                    {
+                        var drawBrush = new SolidBrush(Color.Black);
+                        System.Drawing.StringFormat drawFormat = new System.Drawing.StringFormat();
+                        graphics.DrawString(Clue.Num, drawFont, drawBrush, Location.X + 2, Location.Y + 2, drawFormat);
+                    }
+
+                pen.Width = 2;
+                if (X == 0)
+                    graphics.DrawLine(pen, Location.X, Location.Y, Location.X, Location.Y + CELLSIZE);
+                if (Y == 0)
+                    graphics.DrawLine(pen, Location.X, Location.Y, Location.X + CELLSIZE, Location.Y);
+
             }
         }
     }

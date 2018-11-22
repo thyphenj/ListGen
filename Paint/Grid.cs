@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Drawing;
+using System.Collections.Generic;
 
 namespace Paint
 {
@@ -29,18 +30,18 @@ namespace Paint
                 Cells[y, x].AddClue(clue);
                 if (clue.Dir == direction.ac)
                 {
-                    if ( x > 0 ) Cells[y,x-1].Thickness[0] = 2;
-                    Cells[y, x -1 + clue.Len].Thickness[0] = 2;
+                    if (x > 0) Cells[y, x - 1].Thickness[0] = 2;
+                    Cells[y, x - 1 + clue.Len].Thickness[0] = 2;
                 }
                 else
                 {
-                    if ( y > 0 ) Cells[y-1,x].Thickness[1] = 2;
-                    Cells[y -1 + clue.Len, x].Thickness[1] = 2;
+                    if (y > 0) Cells[y - 1, x].Thickness[1] = 2;
+                    Cells[y - 1 + clue.Len, x].Thickness[1] = 2;
                 }
             }
         }
 
-        public void Draw(System.Drawing.Graphics graphics)
+        public void Draw(Graphics graphics)
         {
             for (int i = 0; i < Height; i++)
                 for (int j = 0; j < Width; j++)
