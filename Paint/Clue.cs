@@ -14,7 +14,7 @@ namespace Paint
         public int Len;
         public string Text;
 
-        private static ClueDirection DefaultDirection { get; set;}
+        private static ClueDirection DefaultDirection = ClueDirection.ac;
 
         public Clue(int y, int x, string num, ClueDirection dir, int len, string text)
         {
@@ -24,6 +24,8 @@ namespace Paint
             Dir = dir;
             Len = len;
             Text = text;
+
+            setDefaultDirection(Dir);
         }
 
         public Clue(int y, int x, string num, int len, string text)
