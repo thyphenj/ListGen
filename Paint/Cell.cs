@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Paint
+namespace ListGen
 {
     class Cell
     {

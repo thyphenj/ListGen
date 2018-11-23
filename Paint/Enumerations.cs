@@ -1,4 +1,4 @@
-﻿namespace Paint
+﻿namespace ListGen
 {
     enum LineThickness
     {

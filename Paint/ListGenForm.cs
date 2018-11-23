@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Paint
+namespace ListGen
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class ListGenForm : System.Windows.Forms.Form
     {
         Grid grid;
         List<Clue> clues;
 
-        public Form()
+        public ListGenForm()
         {
             InitializeComponent();
         }

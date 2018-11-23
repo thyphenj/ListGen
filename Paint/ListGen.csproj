@@ -52,11 +52,11 @@
     <Compile Include="Cell.cs" />
     <Compile Include="Clue.cs" />
     <Compile Include="Enumerations.cs" />
-    <Compile Include="Form.cs">
+    <Compile Include="ListGenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form.Designer.cs">
-      <DependentUpon>Form.cs</DependentUpon>
+    <Compile Include="ListGenForm.Designer.cs">
+      <DependentUpon>ListGenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Grid.cs" />
     <Compile Include="Program.cs" />

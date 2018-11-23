@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Paint
+namespace ListGen
 {
     class Grid
     {

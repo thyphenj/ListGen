@@ -1,6 +1,6 @@
-﻿namespace Paint
+﻿namespace ListGen
 {
-    partial class Form
+    partial class ListGenForm
     {
         /// <summary>
         /// Required designer variable.
