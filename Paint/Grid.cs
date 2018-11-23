@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Paint
 {
     class Grid
     {
-        readonly Cell[,] Cells;
+        public Cell[,] Cells;
         readonly int Height;
         readonly int Width;
 
@@ -27,26 +28,45 @@ namespace Paint
             {
                 int y = clue.Y;
                 int x = clue.X;
+
                 Cells[y, x].AddClue(clue);
-                if (clue.Dir == direction.ac)
-                {
-                    if (x > 0) Cells[y, x - 1].Thickness[0] = 2;
-                    Cells[y, x - 1 + clue.Len].Thickness[0] = 2;
-                }
-                else
-                {
-                    if (y > 0) Cells[y - 1, x].Thickness[1] = 2;
-                    Cells[y - 1 + clue.Len, x].Thickness[1] = 2;
-                }
+
+                for (int i = 0; i < clue.Len - 1; i++)
+                    if (clue.Dir == direction.ac)
+                        Cells[y, x + i].SetDirection(clue.Dir);
+                    else
+                        Cells[y + i, x].SetDirection(clue.Dir);
             }
         }
 
-        public void Draw(Graphics graphics)
+        public void DrawGrid(Graphics graphics)
         {
             for (int i = 0; i < Height; i++)
                 for (int j = 0; j < Width; j++)
                     if (Cells[i, j] != null)
                         Cells[i, j].DrawCell(graphics);
+        }
+
+        public void DrawClues(Graphics graphics, List<Clue> clues)
+        {
+            string str = "Across\n\n";
+            foreach (var clue in clues.Where(a => a.Dir == direction.ac))
+            {
+                str += $"  {clue.Num.PadLeft(2)}   {clue.Text} ({clue.Len})\n";
+            }
+            str += "\nDown\n\n";
+            foreach (var clue in clues.Where(a => a.Dir == direction.dn))
+            {
+                str += $"  {clue.Num.PadLeft(2)}   {clue.Text} ({clue.Len})\n";
+            }
+
+            using (var drawFont = new Font("Arial", 10))
+            using (var drawBrush = new SolidBrush(Color.Black))
+            using (var drawFormat = new StringFormat())
+                foreach (var clue in clues.Where(a => a.Dir == direction.ac))
+                {
+                    graphics.DrawString(str, drawFont, drawBrush, 400, 10, drawFormat);
+                }
         }
     }
 }
