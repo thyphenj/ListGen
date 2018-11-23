@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Cell.cs" />
     <Compile Include="Clue.cs" />
+    <Compile Include="Enumerations.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>

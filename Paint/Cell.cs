@@ -2,14 +2,13 @@
 
 namespace Paint
 {
-    enum thickness { thin = 1, thick = 5 };
     class Cell
     {
         private static readonly int OFFSET = 10;
         private static readonly int CELLSIZE = 40;
 
         public Point Location { get; set; }
-        public thickness[] Thickness { get; set; }
+        public LineThickness[] Thickness { get; set; }
 
         public int Y { get; set; }
         public int X { get; set; }
@@ -22,7 +21,7 @@ namespace Paint
             X = x;
 
             Location = new Point(OFFSET + CELLSIZE * X, OFFSET + CELLSIZE * Y);
-            Thickness = new thickness[] { thickness.thick, thickness.thick };
+            Thickness = new LineThickness[] { LineThickness.lineThick, LineThickness.lineThick };
 
             Clue = new Clue[2];
         }
@@ -32,12 +31,12 @@ namespace Paint
             Clue[(int)clue.Dir] = clue;
         }
 
-        public void SetDirection(direction dir)
+        public void SetDirection(ClueDirection dir)
         {
-            if (dir == direction.ac)
-                Thickness[0] = thickness.thin;
+            if (dir == ClueDirection.ac)
+                Thickness[0] = LineThickness.lineThin;
             else
-                Thickness[1] = thickness.thin;
+                Thickness[1] = LineThickness.lineThin;
 
         }
 
@@ -46,7 +45,7 @@ namespace Paint
             using (var pen = new Pen(Color.Black))
             {
                 // --- draw Eastern and Northern borders fir the top row and leftmost column
-                pen.Width = (int)thickness.thick; ;
+                pen.Width = (int)LineThickness.lineThick; ;
                 if (X == 0)
                     graphics.DrawLine(pen, Location.X, Location.Y, Location.X, Location.Y + CELLSIZE);
                 if (Y == 0)

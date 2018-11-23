@@ -10,11 +10,13 @@ namespace Paint
         public int X;
         public int Y;
         public string Num;
-        public direction Dir;
+        public ClueDirection Dir;
         public int Len;
         public string Text;
 
-        public Clue(int y, int x, string num, direction dir,  int len, string text )
+        private static ClueDirection DefaultDirection { get; set;}
+
+        public Clue(int y, int x, string num, ClueDirection dir, int len, string text)
         {
             Y = y;
             X = x;
@@ -22,6 +24,21 @@ namespace Paint
             Dir = dir;
             Len = len;
             Text = text;
+        }
+
+        public Clue(int y, int x, string num, int len, string text)
+        {
+            Y = y;
+            X = x;
+            Num = num;
+            Dir = DefaultDirection;
+            Len = len;
+            Text = text;
+        }
+
+        public void setDefaultDirection ( ClueDirection dir)
+        {
+            DefaultDirection = dir;
         }
 
         public override string ToString()

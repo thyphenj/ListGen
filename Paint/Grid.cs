@@ -32,7 +32,7 @@ namespace Paint
                 Cells[y, x].AddClue(clue);
 
                 for (int i = 0; i < clue.Len - 1; i++)
-                    if (clue.Dir == direction.ac)
+                    if (clue.Dir == ClueDirection.ac)
                         Cells[y, x + i].SetDirection(clue.Dir);
                     else
                         Cells[y + i, x].SetDirection(clue.Dir);
@@ -50,12 +50,12 @@ namespace Paint
         public void DrawClues(Graphics graphics, List<Clue> clues)
         {
             string str = "Across\n\n";
-            foreach (var clue in clues.Where(a => a.Dir == direction.ac))
+            foreach (var clue in clues.Where(a => a.Dir == ClueDirection.ac))
             {
                 str += $"  {clue.Num.PadLeft(2)}   {clue.Text} ({clue.Len})\n";
             }
             str += "\nDown\n\n";
-            foreach (var clue in clues.Where(a => a.Dir == direction.dn))
+            foreach (var clue in clues.Where(a => a.Dir == ClueDirection.dn))
             {
                 str += $"  {clue.Num.PadLeft(2)}   {clue.Text} ({clue.Len})\n";
             }
@@ -63,7 +63,7 @@ namespace Paint
             using (var drawFont = new Font("Arial", 10))
             using (var drawBrush = new SolidBrush(Color.Black))
             using (var drawFormat = new StringFormat())
-                foreach (var clue in clues.Where(a => a.Dir == direction.ac))
+                foreach (var clue in clues.Where(a => a.Dir == ClueDirection.ac))
                 {
                     graphics.DrawString(str, drawFont, drawBrush, 400, 10, drawFormat);
                 }
