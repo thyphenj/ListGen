@@ -33,6 +33,8 @@ namespace Paint
 
         public void SetDirection(ClueDirection dir)
         {
+            // --- if we have an across clue coming through this cell clear the East border
+            // --- if it's a down clue then remove the South border
             if (dir == ClueDirection.ac)
                 Thickness[0] = LineThickness.lineThin;
             else
