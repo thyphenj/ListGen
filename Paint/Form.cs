@@ -18,8 +18,8 @@ namespace Paint
 
         private void Form_Load(object sender, EventArgs eva)
         {
-            //Listener4399();
-             Listener4451();
+            Listener4399();
+            // Listener4451();
         }
 
         private void Listener4399()
@@ -48,7 +48,13 @@ namespace Paint
                 new Clue( 3, 5, "22", direction.ac, 2, "Factor of Q"),
                 new Clue( 3, 7, "23", direction.ac, 2, "Prime"),
 
+                new Clue( 4, 1, "25", direction.ac, 3, "Q"),
+                new Clue( 4, 5, "27", direction.ac, 3, "8 x P + 10 x X"),
 
+                new Clue( 5, 0, "29", direction.ac, 2, "X"),
+                new Clue( 5, 2, "31", direction.ac, 2, "Factor of C"),
+                new Clue( 5, 4, "33", direction.ac, 3, "27dn + 28dn"),
+                new Clue( 5, 7, "35", direction.ac, 2, "Factor of 36ac"),
 
                 new Clue( 0, 0, "1", direction.dn, 3, "7 x X"),
                 new Clue( 0, 1, "2", direction.dn, 3, "Prime"),
