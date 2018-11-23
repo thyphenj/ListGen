@@ -3,5 +3,9 @@
 ################################################################################
 
 /.vs
-/Paint/bin
-/Paint/obj
+*.exe
+*.pdb
+*.cache
+/Paint/obj/x86/Debug/Paint.csproj.FileListAbsolute.txt
+/Paint/obj/x86/Debug/Paint.Form.resources
+/Paint/obj/x86/Debug/Paint.Properties.Resources.resources
