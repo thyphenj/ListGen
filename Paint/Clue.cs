@@ -45,7 +45,7 @@ namespace Paint
 
         public override string ToString()
         {
-            string retval = $"{Num.ToString().PadLeft(2)}{Dir}) {Text} ({Len.ToString()})";
+            string retval = $"   {Num.ToString().PadLeft(2)}{Dir}   {Text} ({Len.ToString()})";
             return retval;
         }
 

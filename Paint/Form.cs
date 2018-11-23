@@ -16,17 +16,29 @@ namespace Paint
 
         private void Form_Load(object sender, EventArgs eva)
         {
-
+            // --- Run with ONE of the puzzles
             Listener4399();
             // Listener4451();
+
+            // --- Put the clues on the grid
+            grid.AddClues(clues);
         }
+
+        private void Form_Paint(object sender, PaintEventArgs ev)
+        {
+            grid.DrawGrid(ev.Graphics);
+
+            grid.DrawClues(ev.Graphics, clues);
+        }
+
+        //--------------------------------------------------------------------------------------------------------------------------------
 
         private void Listener4399()
         {
-            //Create a grid
+            // --- Create a grid
             grid = new Grid(height: 9, width: 9);
 
-            //Add some clues
+            // --- Add some clues
             clues = new List<Clue>
             {
                 new Clue( 0, 0, "1", ClueDirection.ac, 2, "J"),
@@ -66,17 +78,14 @@ namespace Paint
                 new Clue( 1, 5, "12", 3, "B - Q"),
                 new Clue( 1, 8, "14", 4, "B + Q - 22ac")
             };
-
-            //Put the clues on the grid
-            grid.AddClues(clues);
         }
 
         private void Listener4451()
         {
-            //Create a grid
+            // --- Create a grid
             grid = new Grid(height: 4, width: 5);
 
-            //Add some clues
+            // --- Add some clues
             clues = new List<Clue>
             {
                 new Clue( 0, 0, "1", ClueDirection.ac, 2, "Sum of all 20 digits in the grid"),
@@ -94,16 +103,6 @@ namespace Paint
                 new Clue( 2, 2, "7", 2, "Prime")
             };
 
-            //Put the clues on the grid
-            grid.AddClues(clues);
-
-        }
-
-        private void Form_Paint(object sender, PaintEventArgs ev)
-        {
-            grid.DrawGrid(ev.Graphics);
-
-            grid.DrawClues(ev.Graphics, clues);
         }
     }
 }
