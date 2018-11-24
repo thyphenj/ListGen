@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ListGen
 {
@@ -24,29 +22,23 @@ namespace ListGen
             //Listener4516();
         }
 
-        public void Draw(PaintEventArgs ev)
+        public override string ToString()
         {
-            System.Drawing.Graphics g = ev.Graphics;
+            return $" No {number} | {title} | by {author}";
+        }
 
-            DrawHeader(g);
+        public string GetRubric()
+        {
+            return rubric;
+        }
 
+        public void Draw(Graphics g )
+        {
             grid.DrawGrid(g);
-
-            DrawRubric(g);
 
             grid.DrawClues(g, clues);
         }
-        public void DrawHeader(Graphics g)
-        {
-            using (var drawFont = new Font("Arial", 18))
-            using (var drawBrush = new SolidBrush(Color.Black))
-            using (var drawFormat = new StringFormat())
-            {
-                g.DrawString($"The Listener CrossWord No {number} {title} by {author}", drawFont, drawBrush, 0, 0, drawFormat);
-            }
-
-        }
-
+   
         public void DrawRubric(Graphics g)
         {
             using (var drawFont = new Font("Arial", 18))
@@ -65,7 +57,7 @@ namespace ListGen
                 "The letter variables used in the clues form four triples (A, B, C), (J, K, L), (P, Q, R) and (X, Y, Z).\n" +
                 "where each triple consists of square numbers of two, three and four digits respectively, that between\n" +
                 "them contain all the digits from 1 to 9 inclusive. After filling the grid, solvers must identify and\n" +
-                "highlight two complete rows and two complete columns that are related to the theme. No entry" +
+                "highlight two complete rows and two complete columns that are related to the theme. No entry\n" +
                 "starts with zero and all are different.";
 
             // --- Create a grid
@@ -157,6 +149,14 @@ namespace ListGen
 
         private void Listener4451()
         {
+            number = 4451;
+            title = "Numerical Playfair";
+            author = "Zag";
+            rubric =
+                "All 2-digit clue answers have non-zero, non-repeating digits and must be enciphered using a\n" +
+                "Playfair code-square (to be deduced) before entry in the grid. No answer starts with a zero and\n" +
+                "all entries are distinct";
+
             // --- Create a grid
             grid = new Grid(height: 4, width: 5);
 
@@ -167,7 +167,7 @@ namespace ListGen
                 new Clue( 0, 2, "2", 3, "Multiple of another grid entry"),
                 new Clue( 1, 0, "4", 3, "One row of the Playfair code-square"),
                 new Clue( 2, 2, "7", 3, "Divisor of 3dn"),
-                new Clue( 3, 0, "8", 3, "One column of the Playafair code-square"),
+                new Clue( 3, 0, "8", 3, "One column of the Playfair code-square"),
                 new Clue( 3, 3, "9", 2, "The Playfair code-number for this puzzle"),
 
                 new Clue( 0, 0, "1", 3, "A square minus the grid entry at 1ac", ClueDirection.dn),

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ListGen
@@ -16,11 +16,18 @@ namespace ListGen
         private void Form_Load(object sender, EventArgs eva)
         {
             puzzle = new Puzzle();
+
+            lblTitle.Text = puzzle.ToString();
+            lblRubric.Text = puzzle.GetRubric();
+
+ 
+            
         }
 
         private void Form_Paint(object sender, PaintEventArgs ev)
         {
-            puzzle.Draw(ev);
+            Graphics g = pnlGrid.CreateGraphics();
+            puzzle.Draw(g);
         }
     }
 }
