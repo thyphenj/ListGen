@@ -30,12 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Form
+            // ListGenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(916, 685);
-            this.Name = "Form";
+            this.ClientSize = new System.Drawing.Size(2147, 1515);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "ListGenForm";
             this.Text = "Listener";
             this.Load += new System.EventHandler(this.Form_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form_Paint);

@@ -16,7 +16,7 @@ namespace ListGen
 
         private static ClueDirection DefaultDirection = ClueDirection.ac;
 
-        public Clue(int y, int x, string num, ClueDirection dir, int len, string text)
+        public Clue(int y, int x, string num, int len, string text, ClueDirection dir)
         {
             Y = y;
             X = x;
@@ -45,7 +45,7 @@ namespace ListGen
 
         public override string ToString()
         {
-            string retval = $"   {Num.ToString().PadLeft(2)}{Dir}   {Text} ({Len.ToString()})";
+            string retval = $"   {Num.ToString().PadLeft(2)}   {Text} ({Len.ToString()})";
             return retval;
         }
 

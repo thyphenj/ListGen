@@ -1,11 +1,12 @@
 ﻿using System.Drawing;
+using System.Collections.Generic;
 
 namespace ListGen
 {
     class Cell
     {
-        private static readonly int OFFSET = 10;
-        private static readonly int CELLSIZE = 40;
+        private static readonly int OFFSET = 30;
+        private static readonly int CELLSIZE = 50;
 
         public Point Location { get; set; }
         public LineThickness[] Thickness { get; set; }
@@ -14,6 +15,7 @@ namespace ListGen
         public int X { get; set; }
 
         public Clue[] Clue { get; set; }
+        public Dictionary<string,Clue> Clue2 { get; set; }
 
         public Cell(int y, int x)
         {
@@ -24,6 +26,7 @@ namespace ListGen
             Thickness = new LineThickness[] { LineThickness.lineThick, LineThickness.lineThick };
 
             Clue = new Clue[2];
+   
         }
 
         public void AddClue(Clue clue)
@@ -64,7 +67,7 @@ namespace ListGen
 
                 // --- draw the clue number
                 if (Clue[0] != null || Clue[1] != null)
-                    using (var drawFont = new Font("Arial", 8))
+                    using (var drawFont = new Font("Arial", 12))
                     using (var drawBrush = new SolidBrush(Color.Black))
                     using (var drawFormat = new StringFormat())
                         graphics.DrawString(Clue[Clue[0] == null ? 1 : 0].Num, drawFont, drawBrush, Location.X + 2, Location.Y + 2, drawFormat);

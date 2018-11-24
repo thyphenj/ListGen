@@ -48,23 +48,42 @@ namespace ListGen
                         Cells[i, j].DrawCell(graphics);
         }
 
-        public void DrawClues(Graphics graphics, List<Clue> clues)
+        public string AcrossCluesString(List<Clue> clues)
         {
             string str = "Across\n\n";
             foreach (var clue in clues.Where(a => a.Dir == ClueDirection.ac))
             {
                 str += clue.ToString() + "\n";
             }
-            str += "\nDown\n\n";
+            return str + "\n";
+        }
+
+        public string DownCluesString(List<Clue> clues)
+        {
+            string str = "Down\n\n";
             foreach (var clue in clues.Where(a => a.Dir == ClueDirection.dn))
             {
                 str += clue.ToString() + "\n";
             }
+            return str + "\n";
+        }
 
-            using (var drawFont = new Font("Arial", 10))
+        public void DrawClues(Graphics graphics, List<Clue> clues, bool twoColumns = true)
+        {
+            using (var drawFont = new Font("Arial", 16))
             using (var drawBrush = new SolidBrush(Color.Black))
             using (var drawFormat = new StringFormat())
-                graphics.DrawString(str, drawFont, drawBrush, 400, 10, drawFormat);
+            {
+                string acrossString = AcrossCluesString(clues);
+                string downString = DownCluesString(clues);
+                if (twoColumns)
+                {
+                    graphics.DrawString(acrossString, drawFont, drawBrush, 500, 20, drawFormat);
+                    graphics.DrawString(downString, drawFont, drawBrush, 1000, 20, drawFormat);
+                }
+                else
+                    graphics.DrawString(acrossString + downString, drawFont, drawBrush, 600, 20, drawFormat);
+            }
         }
     }
 }
