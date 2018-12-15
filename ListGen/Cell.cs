@@ -49,7 +49,7 @@ namespace ListGen
         {
             using (var pen = new Pen(Color.Black))
             {
-                // --- draw Eastern and Northern borders fir the top row and leftmost column
+                // --- draw Western and Northern borders for the top row and leftmost column
                 pen.Width = (int)LineThickness.lineThick; ;
                 if (X == 0)
                     graphics.DrawLine(pen, Location.X, Location.Y, Location.X, Location.Y + CELLSIZE);

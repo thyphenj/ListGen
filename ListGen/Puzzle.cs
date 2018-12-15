@@ -17,9 +17,11 @@ namespace ListGen
 
         public Puzzle()
         {
-            Listener4399();
+            //Template ();
+            //Listener4399();
             //Listener4451();
             //Listener4516();
+            Listener4529 ();
         }
 
         public override string ToString()
@@ -32,22 +34,98 @@ namespace ListGen
             return rubric;
         }
 
-        public void Draw(Graphics g )
+        public void DrawGrid(Graphics g)
         {
-            grid.DrawGrid(g);
-
-            grid.DrawClues(g, clues);
+            grid.DrawGrid (g);
         }
-   
+
+        public void DrawClues(Graphics g)
+        {
+            grid.DrawClues (g, clues);
+        }
+
         public void DrawRubric(Graphics g)
         {
-            using (var drawFont = new Font("Arial", 18))
-            using (var drawBrush = new SolidBrush(Color.Black))
-            using (var drawFormat = new StringFormat())
+            using (var drawFont = new Font ("Arial", 18))
+            using (var drawBrush = new SolidBrush (Color.Black))
+            using (var drawFormat = new StringFormat ())
             {
-                g.DrawString(rubric, drawFont, drawBrush, 10, 400, drawFormat);
+                g.DrawString (rubric, drawFont, drawBrush, 10, 10, drawFormat);
             }
         }
+
+        private void Template()
+        {
+            number = 0;
+            title = "title";
+            author = "author";
+            rubric = "rubric";
+            grid = new Grid (height: 1, width: 1);
+            clues = new List<Clue>
+            {
+                new Clue ( 0, 0, "1", 1, "clue", ClueDirection.ac),
+
+                new Clue ( 0, 0, "1", 1, "clue", ClueDirection.dn)
+            };
+
+            grid.AddClues (clues);
+        }
+
+        private void Listener4529()
+        {
+            number = 4529;
+            title = "St Hubert's College";
+            author = "Oyler";
+            rubric =
+                "St Hubert's College  was founded in the 17th Century and has an impressive Great Quad, a square\n" +
+                "whose side length in yards is exactly divisible by its number of factors. There is a Lesser Quad\n" +
+                "which is rectangular with one of its side lengths (in yards) being a factor of the Great Quad's length.\n" +
+                "In its Time Travel department, Oyler discovered the following puzzle, but which year it came from\n" +
+                "is unknown. It was written by the Master of the college as a secret way to remember the security\n" +
+                "code for his wife's bank account, which must be written below the grid.\n" +
+                "\n" +
+                "\"My wife and I will celebrate our silver wedding anniversary next year. Her bank security code is \n" +
+                "the four-digit product of three distinct two-digit prime numbers, two of which are her age now and \n" +
+                "her age when we got married. No entry starts with a zero and all are different.\""; 
+
+            grid = new Grid (height: 8, width: 8);
+            clues = new List<Clue>
+            {
+                new Clue ( 0, 0, "1", 2, "The number of college graduates nominated for Nobel prizes in the 20th century, a factor of 14dn", ClueDirection.ac),
+                new Clue ( 0, 3, "2", 2, "The number of children my wife has mothered both in and out of wedlock, a factor of 14dn"),
+                new Clue ( 0, 6, "3", 2, "clue"),
+                new Clue ( 1, 2, "5", 2, "clue"),
+                new Clue ( 1, 5, "6", 3, "clue"),
+                new Clue ( 2, 0, "7", 5, "clue"),
+                new Clue ( 2, 6, "9", 2, "clue"),
+                new Clue ( 3, 4, "10", 3, "clue"),
+                new Clue ( 4, 1, "12", 3, "clue"),
+                new Clue ( 5, 0, "15", 2, "clue"),
+                new Clue ( 5, 3, "16", 5, "clue"),
+                new Clue ( 6, 0, "18", 3, "clue"),
+                new Clue ( 6, 4, "19", 2, "clue"),
+                new Clue ( 7, 0, "20", 2, "clue"),
+                new Clue ( 7, 3, "21", 2, "clue"),
+                new Clue ( 7, 6, "22", 2, "clue"),
+
+
+                new Clue ( 0, 0, "1", 4, "clue", ClueDirection.dn),
+                new Clue ( 0, 3, "2", 3, "clue"),
+                new Clue ( 0, 6, "3", 4, "clue"),
+                new Clue ( 0, 7, "4", 3, "clue"),
+                new Clue ( 1, 2, "5", 4, "clue"),
+                new Clue ( 2, 4, "8", 2, "clue"),
+                new Clue ( 3, 5, "11", 4, "clue"),
+                new Clue ( 4, 1, "12", 4, "clue"),
+                new Clue ( 4, 3, "13", 2, "clue"),
+                new Clue ( 4, 7, "14", 4, "clue"),
+                new Clue ( 5, 0, "15", 3, "clue"),
+                new Clue ( 5, 4, "17", 3, "clue")                
+            };
+
+            grid.AddClues (clues);
+        }
+
         private void Listener4399()
         {
             number = 4399;
@@ -61,7 +139,7 @@ namespace ListGen
                 "starts with zero and all are different.";
 
             // --- Create a grid
-            grid = new Grid(height: 9, width: 9);
+            grid = new Grid (height: 9, width: 9);
 
             // --- Add some clues
             clues = new List<Clue>
@@ -144,7 +222,7 @@ namespace ListGen
                 };
 
             // --- Put the clues on the grid
-            grid.AddClues(clues);
+            grid.AddClues (clues);
         }
 
         private void Listener4451()
@@ -158,7 +236,7 @@ namespace ListGen
                 "all entries are distinct";
 
             // --- Create a grid
-            grid = new Grid(height: 4, width: 5);
+            grid = new Grid (height: 4, width: 5);
 
             // --- Add some clues
             clues = new List<Clue>
@@ -179,13 +257,13 @@ namespace ListGen
             };
 
             // --- Put the clues on the grid
-            grid.AddClues(clues);
+            grid.AddClues (clues);
         }
 
         private void Listener4516()
         {
             // --- Create a grid
-            grid = new Grid(height: 9, width: 9);
+            grid = new Grid (height: 9, width: 9);
 
             // --- Add some clues
             clues = new List<Clue>
@@ -235,7 +313,7 @@ namespace ListGen
             };
 
             // --- Put the clues on the grid
-            grid.AddClues(clues);
+            grid.AddClues (clues);
         }
     }
 }

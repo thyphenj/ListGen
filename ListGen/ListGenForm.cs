@@ -10,24 +10,27 @@ namespace ListGen
 
         public ListGenForm()
         {
-            InitializeComponent();
+            InitializeComponent ();
         }
 
         private void Form_Load(object sender, EventArgs eva)
         {
-            puzzle = new Puzzle();
+            puzzle = new Puzzle ();
 
-            lblTitle.Text = puzzle.ToString();
-            lblRubric.Text = puzzle.GetRubric();
-
- 
-            
+            lblTitle.Text = puzzle.ToString ();
+            lblRubric.Text = puzzle.GetRubric ();
         }
 
-        private void Form_Paint(object sender, PaintEventArgs ev)
+        private void pnlGrid_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = pnlGrid.CreateGraphics();
-            puzzle.Draw(g);
+            Graphics g = pnlGrid.CreateGraphics ();
+            puzzle.DrawGrid (g);
+        }
+
+        private void pnlClues_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = pnlClues.CreateGraphics ();
+            puzzle.DrawClues (g);
         }
     }
 }

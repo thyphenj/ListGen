@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Linq;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace ListGen
 {
@@ -68,7 +69,7 @@ namespace ListGen
             return str + "\n";
         }
 
-        public void DrawClues(Graphics graphics, List<Clue> clues, bool twoColumns = true)
+        public void DrawClues(Graphics graphics, List<Clue> clues, bool twoColumns = false)
         {
             using (var drawFont = new Font("Arial", 16))
             using (var drawBrush = new SolidBrush(Color.Black))
@@ -78,11 +79,11 @@ namespace ListGen
                 string downString = DownCluesString(clues);
                 if (twoColumns)
                 {
-                    graphics.DrawString(acrossString, drawFont, drawBrush, 500, 20, drawFormat);
-                    graphics.DrawString(downString, drawFont, drawBrush, 1000, 20, drawFormat);
+                    graphics.DrawString(acrossString, drawFont, drawBrush, 10, 20, drawFormat);
+                    graphics.DrawString(downString, drawFont, drawBrush, 510, 20, drawFormat);
                 }
                 else
-                    graphics.DrawString(acrossString + downString, drawFont, drawBrush, 600, 20, drawFormat);
+                    graphics.DrawString(acrossString + downString, drawFont, drawBrush, 10, 20, drawFormat);
             }
         }
     }
