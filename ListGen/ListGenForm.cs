@@ -15,6 +15,11 @@ namespace ListGen
 
         private void Form_Load(object sender, EventArgs eva)
         {
+
+            this.Size = new Size (1400,830);
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point (1, 1);
+
             puzzle = new Puzzle ();
 
             lblTitle.Text = puzzle.ToString ();
@@ -27,10 +32,16 @@ namespace ListGen
             puzzle.DrawGrid (g);
         }
 
-        private void pnlClues_Paint(object sender, PaintEventArgs e)
+        private void pnlAcross_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = pnlClues.CreateGraphics ();
-            puzzle.DrawClues (g);
+            Graphics g = pnlAcross.CreateGraphics ();
+            puzzle.DrawAcrossClues (g);
+        }
+
+        private void pnlDown_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = pnlDown.CreateGraphics ();
+            puzzle.DrawDownClues (g);
         }
     }
 }

@@ -69,21 +69,18 @@ namespace ListGen
             return str + "\n";
         }
 
-        public void DrawClues(Graphics graphics, List<Clue> clues, bool twoColumns = false)
+        public void DrawClues(Graphics graphics, List<Clue> clues, ClueDirection dir)
         {
-            using (var drawFont = new Font("Arial", 16))
+            using (var drawFont = new Font("Arial", 10))
             using (var drawBrush = new SolidBrush(Color.Black))
-            using (var drawFormat = new StringFormat())
             {
-                string acrossString = AcrossCluesString(clues);
-                string downString = DownCluesString(clues);
-                if (twoColumns)
-                {
-                    graphics.DrawString(acrossString, drawFont, drawBrush, 10, 20, drawFormat);
-                    graphics.DrawString(downString, drawFont, drawBrush, 510, 20, drawFormat);
-                }
+                string cl;
+                if ( dir == ClueDirection.ac)
+                    cl  = AcrossCluesString(clues);
                 else
-                    graphics.DrawString(acrossString + downString, drawFont, drawBrush, 10, 20, drawFormat);
+                    cl = DownCluesString(clues);
+
+                graphics.DrawString(cl, drawFont, drawBrush, 10, 10);
             }
         }
     }

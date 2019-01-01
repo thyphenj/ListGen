@@ -5,7 +5,7 @@ namespace ListGen
 {
     class Cell
     {
-        private static readonly int OFFSET = 30;
+        private static readonly int OFFSET = 10;
         private static readonly int CELLSIZE = 50;
 
         public Point Location { get; set; }

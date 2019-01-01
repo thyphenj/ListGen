@@ -31,20 +31,18 @@
             this.pnlGrid = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblRubric = new System.Windows.Forms.Label();
-            this.pnlClues = new System.Windows.Forms.Panel();
+            this.pnlAcross = new System.Windows.Forms.Panel();
+            this.pnlDown = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // pnlGrid
             // 
-            this.pnlGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlGrid.AutoSize = true;
             this.pnlGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlGrid.Location = new System.Drawing.Point(35, 64);
-            this.pnlGrid.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlGrid.Location = new System.Drawing.Point(10, 92);
+            this.pnlGrid.Margin = new System.Windows.Forms.Padding(4);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(614, 443);
+            this.pnlGrid.Size = new System.Drawing.Size(1000, 1000);
             this.pnlGrid.TabIndex = 1;
             this.pnlGrid.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGrid_Paint);
             // 
@@ -53,10 +51,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(35, 18);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Location = new System.Drawing.Point(10, 9);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(95, 33);
+            this.lblTitle.Size = new System.Drawing.Size(189, 65);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "lblTitle";
             // 
@@ -64,37 +62,49 @@
             // 
             this.lblRubric.AutoSize = true;
             this.lblRubric.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRubric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRubric.Location = new System.Drawing.Point(35, 520);
-            this.lblRubric.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRubric.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRubric.Location = new System.Drawing.Point(10, 1107);
+            this.lblRubric.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRubric.Name = "lblRubric";
-            this.lblRubric.Size = new System.Drawing.Size(72, 22);
-            this.lblRubric.TabIndex = 4;
+            this.lblRubric.Size = new System.Drawing.Size(122, 33);
+            this.lblRubric.TabIndex = 1;
             this.lblRubric.Text = "lblRubric";
             // 
-            // pnlClues
+            // pnlAcross
             // 
-            this.pnlClues.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlClues.AutoSize = true;
-            this.pnlClues.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlClues.Location = new System.Drawing.Point(653, 64);
-            this.pnlClues.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlClues.Name = "pnlClues";
-            this.pnlClues.Size = new System.Drawing.Size(724, 443);
-            this.pnlClues.TabIndex = 5;
-            this.pnlClues.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlClues_Paint);
+            this.pnlAcross.AutoSize = true;
+            this.pnlAcross.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlAcross.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlAcross.Location = new System.Drawing.Point(1018, 92);
+            this.pnlAcross.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlAcross.Name = "pnlAcross";
+            this.pnlAcross.Size = new System.Drawing.Size(800, 1000);
+            this.pnlAcross.TabIndex = 5;
+            this.pnlAcross.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlAcross_Paint);
+            // 
+            // pnlDown
+            // 
+            this.pnlDown.AutoSize = true;
+            this.pnlDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlDown.Location = new System.Drawing.Point(1826, 92);
+            this.pnlDown.Name = "pnlDown";
+            this.pnlDown.Size = new System.Drawing.Size(800, 1000);
+            this.pnlDown.TabIndex = 6;
+            this.pnlDown.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDown_Paint);
             // 
             // ListGenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1515, 583);
-            this.Controls.Add(this.pnlClues);
+            this.ClientSize = new System.Drawing.Size(2884, 1200);
+            this.Controls.Add(this.pnlDown);
+            this.Controls.Add(this.pnlAcross);
             this.Controls.Add(this.lblRubric);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pnlGrid);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ListGenForm";
             this.Text = "Listener";
             this.Load += new System.EventHandler(this.Form_Load);
@@ -107,6 +117,7 @@
         private System.Windows.Forms.Panel pnlGrid;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblRubric;
-        private System.Windows.Forms.Panel pnlClues;
+        private System.Windows.Forms.Panel pnlAcross;
+        private System.Windows.Forms.Panel pnlDown;
     }
 }
